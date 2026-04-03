@@ -1,5 +1,5 @@
-import { BrawlersData } from "./Data";
-import Card from "./Card";
+import { BrawlersData } from "./componentes/Data";
+import Card from "./componentes/Card";
 import "./App.css";
  
 function App() {

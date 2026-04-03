@@ -123,5 +123,5 @@ export const BrawlersData = [
     raridade: "Ultra-Lendário",
     descricao: "Sua identidade é tão misteriosa quanto seus poderes. Ele foi a primeira atração do Starr Park, mas rumores dizem que foi expulso de forma injusta e banido para sempre. Agora... ele voltou para se vingar.",
     imagem: "https://www.brawlstarsdicas.com.br/wp-content/uploads/2017/06/sirius-wiki-brawl-stars-dicas-phuxcM-150x150.gif",
-  }
+  },
 ];
