@@ -3,7 +3,7 @@ export const corRaridade = {
     Raro: "#4caf50",
     "Super-Raro": "#2196f3",
     Epico: "#a018b8",
-    Mítico: "#ff5722",
+    Mítico: "#9b0b0b",
     Lendário: "#ffd700",
     "Ultra-Lendário": "#000000"
 };

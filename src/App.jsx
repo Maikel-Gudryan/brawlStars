@@ -37,7 +37,7 @@ function App() {
 
         <main className="lista">
           {brawlersFiltrar.length === 0 && (
-        <p className="Sem-Resultado">Nenhum Brawler da Classe Encontrado</p>
+       <p className="semResultado">Nenhum Brawler da Classe Encontrado</p> 
         )}
           {brawlersFiltrar.map((brawler) => (
           <Card
