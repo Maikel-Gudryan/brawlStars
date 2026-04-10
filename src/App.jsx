@@ -5,14 +5,14 @@ import "./App.css";
 import { FiltroClasse, FiltroRaridade } from "./componentes/Filtro";
 
 function App() {
-  const [classeSelecionada, setClasseSelecionada] = useState ("Todos");
-  const [raridadeSelecionada, setRaridadeSelecionada] = useState ("Todos");
+  const [classeSelecionada, setClasseSelecionada] = useState("Todos");
+  const [raridadeSelecionada, setRaridadeSelecionada] = useState("Todos");
 
   const classe = ["Todos", ...new Set(BrawlersData.map((b) => b.classe))];
   const raridade = ["Todos", ...new Set(BrawlersData.map((b) => b.raridade))];
-  
+
   const brawlersFiltrar = BrawlersData
-    .filter((b) => classeSelecionada === "Todos" || b.classe === classeSelecionada )
+    .filter((b) => classeSelecionada === "Todos" || b.classe === classeSelecionada)
     .filter((b) => raridadeSelecionada === "Todos" || b.raridade === raridadeSelecionada);
 
   return (
@@ -25,21 +25,21 @@ function App() {
 
       <FiltroClasse
         classe = {classe}
-        selecionadaClasse = {classeSelecionada}
+        selecionarClasse = {classeSelecionada}
         onSelecionarClasse = {setClasseSelecionada}
       />
 
       <FiltroRaridade
         raridade = {raridade}
-        selecinadaRaridade = {raridadeSelecionada}
+        selecinarRaridade = {raridadeSelecionada}
         onSelecionarRaridade = {setRaridadeSelecionada}
       />
 
-        <main className="lista">
-          {brawlersFiltrar.length === 0 && (
-       <p className="semResultado">Nenhum Brawler da Classe Encontrado</p> 
+      <main className = "lista">
+        {brawlersFiltrar.length === 0 && (
+          <p className="semResultado">Nenhum Brawler da Classe Encontrado</p>
         )}
-          {brawlersFiltrar.map((brawler) => (
+        {brawlersFiltrar.map((brawler) => (
           <Card
             key={brawler.id}
             nome={brawler.nome}
@@ -48,10 +48,10 @@ function App() {
             descricao={brawler.descricao}
             imagem={brawler.imagem}
           />
-          
+
         ))}
-        
-    
+
+
       </main>
     </div>
   );

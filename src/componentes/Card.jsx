@@ -1,8 +1,8 @@
 import "./Card.css";
-import { corRaridade,corClasse } from "./cores";
+import { corRaridade, corClasse } from "./cores";
 
-function Card({ nome, classe, raridade, descricao, imagem}) {
- 
+function Card({ nome, classe, raridade, descricao, imagem }) {
+
   return (
     <div className="card">
       <div className="card-header" style={{ borderColor: corClasse[classe] || "#444" }}>
@@ -17,7 +17,7 @@ function Card({ nome, classe, raridade, descricao, imagem}) {
         <div className="card-titulo">
           <h2 className="card-nome">{nome}</h2>
           <span className="card-classe" style={{ backgroundColor: corClasse[classe] || "#444" }}>
-           
+
             {classe}
           </span>
         </div>

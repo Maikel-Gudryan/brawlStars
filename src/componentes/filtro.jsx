@@ -1,33 +1,31 @@
-export const FiltroClasse = ({classe, selecionarClasse, onSelecionarClasse}) => {
+export const FiltroClasse = ({ classe, selecionarClasse, onSelecionarClasse }) => {
+  return (
+    <div className="filtro">
+      {classe.map((categoria) => (
+        <button
+          key={categoria}
+          className={`filtroBtn ${selecionarClasse === categoria ? "ativo" : ""}`}
+          onClick={() => onSelecionarClasse(categoria)}
+        >
+          {categoria}
+        </button>
+      ))}
+    </div>
+  );
+};
 
-    return(
-        <div className="filtro">
-            {classe.map((classe) => (
-                <button
-                    key = {classe}
-                    className = {`{filtro-btn} ${selecionarClasse === classe ? "ativo" : ""}`}
-                    onClick = {() => onSelecionarClasse(classe)}
-                >
-                    {classe}
-                </button>
-            ))}
-        </div>
-    );   
-}
-
-export const FiltroRaridade = ({raridade, selecinarRaridade, onSelecionarRaridade}) => {
-
-    return(
-        <div className="filtro">
-            {raridade.map((raridade) =>(
-                <button
-                    key = {raridade}
-                    className = {`{filtr-btn} ${selecinarRaridade === raridade ? "ativo" : ""}`}
-                    onClick = {() => onSelecionarRaridade(raridade)}
-                >
-                    {raridade}
-                </button>
-            ))}
-        </div>
-    );
-}
+export const FiltroRaridade = ({ raridade, selecionarRaridade, onSelecionarRaridade }) => {
+  return (
+    <div className="filtro">
+      {raridade.map((item) => (
+        <button
+          key={item}
+          className={`filtroBtn ${selecionarRaridade === item ? "ativo" : ""}`}
+          onClick={() => onSelecionarRaridade(item)}
+        >
+          {item}
+        </button>
+      ))}
+    </div>
+  );
+};
