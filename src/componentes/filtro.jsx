@@ -1,3 +1,5 @@
+import "./filtro.css";
+
 export const FiltroClasse = ({ classe, selecionarClasse, onSelecionarClasse }) => {
   return (
     <div className="filtro">

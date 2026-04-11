@@ -31,7 +31,7 @@ function App() {
 
       <FiltroRaridade
         raridade = {raridade}
-        selecinarRaridade = {raridadeSelecionada}
+        selecionarRaridade = {raridadeSelecionada}
         onSelecionarRaridade = {setRaridadeSelecionada}
       />
 
@@ -39,9 +39,9 @@ function App() {
         {brawlersFiltrar.length === 0 && (
           <p className="semResultado">Nenhum Brawler da Classe Encontrado</p>
         )}
-        {brawlersFiltrar.map((brawler) => (
+        {brawlersFiltrar.map((brawler, index) => (
           <Card
-            key={brawler.id}
+            key={index}
             nome={brawler.nome}
             classe={brawler.classe}
             raridade={brawler.raridade}

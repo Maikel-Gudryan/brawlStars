@@ -63,36 +63,3 @@ body {
   justify-content: center;
   padding: 15px;
 }
-
-.filtro {
- display: flex;
- gap: 6px;
- justify-content: center;
- flex-wrap: wrap;
- margin-bottom: 10px;
- 
-}
-
-.filtro button{
- background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #aab4d4;
-  padding: 8px 20px;
-  border-radius: 24px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-} 
-
-.filtroBtn:hover{
-    background: rgb(51, 0, 255);
-  color: #ffffff;
-}
-
-.filtroBtn:active{
-  color: #ff0000;
-  background: linear-gradient(135deg, #ffd700, #ff6b35);
-  border-color: transparent;
-  font-weight: 700;
-}
