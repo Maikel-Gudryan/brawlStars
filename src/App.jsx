@@ -4,6 +4,7 @@ import "./App.css";
 import { FiltroClasse, FiltroRaridade } from "./componentes/Filtro";
 import Main from "./componentes/Main";
 import Header from "./componentes/Header";
+import Input from "./componentes/Input";
 
 function App() {
   const [classeSelecionada, setClasseSelecionada] = useState("Todos");
@@ -25,14 +26,10 @@ function App() {
         total={BrawlersData.length} 
       />
 
-      <input 
-        type="text"
-        value = {pesquisa}
-        onChange = {(e) => setPesquisa(e.target.value)}
-        className = "barraPesquisa"
-        placeholder = "Pesquise seu Brawler..."
-       >
-       </input> 
+      <Input
+        barra={pesquisa}
+        setBarra={setPesquisa}
+      />
 
       <FiltroClasse
         classe = {classe}
