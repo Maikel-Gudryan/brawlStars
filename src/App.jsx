@@ -1,51 +1,78 @@
 import { useState } from "react";
 import { BrawlersData } from "./componentes/Data";
 import "./App.css";
-import { FiltroClasse, FiltroRaridade } from "./componentes/Filtro";
+import { FiltroClasse } from "./componentes/FiltroClasse";
+import { FiltroRaridade } from "./componentes/FiltroRaridade";
 import Main from "./componentes/Main";
 import Header from "./componentes/Header";
 import Input from "./componentes/Input";
 
 function App() {
-  const [classeSelecionada, setClasseSelecionada] = useState("Todos");
-  const [raridadeSelecionada, setRaridadeSelecionada] = useState("Todos");
+  const [classesSelecionadas, setClassesSelecionadas] = useState([]);
+  const [raridadesSelecionadas, setRaridadesSelecionadas] = useState([]);
   const [pesquisa, setPesquisa] = useState("");
 
-  const classe = ["Todos", ...new Set(BrawlersData.map((b) => b.classe))];
-  const raridade = ["Todos", ...new Set(BrawlersData.map((b) => b.raridade))];
+  const classes = [...new Set(BrawlersData.map((b) => b.classe))];
+  const raridades = [...new Set(BrawlersData.map((b) => b.raridade))];
 
-  const brawlersFiltrar = BrawlersData
-    .filter((b) => classeSelecionada === "Todos" || b.classe === classeSelecionada)
-    .filter((b) => raridadeSelecionada === "Todos" || b.raridade === raridadeSelecionada)
-    .filter((b) => b.nome?.toLowerCase().startsWith(pesquisa.toLowerCase()));
+  function toggleClasse(classe) {
+    setClassesSelecionadas((prev) =>
+      prev.includes(classe)
+        ? prev.filter((c) => c !== classe)
+        : [...prev, classe]
+    );
+  }
+
+  function toggleRaridade(raridade) {
+    setRaridadesSelecionadas((prev) =>
+      prev.includes(raridade)
+        ? prev.filter((r) => r !== raridade)
+        : [...prev, raridade]
+    );
+  }
+
+  const brawlersFiltrados = BrawlersData
+    .filter((b) =>
+      classesSelecionadas.length === 0 || classesSelecionadas.includes(b.classe)
+    )
+    .filter((b) =>
+      raridadesSelecionadas.length === 0 || raridadesSelecionadas.includes(b.raridade)
+    )
+    .filter((b) =>
+      b.nome.toLowerCase().startsWith(pesquisa.toLowerCase()) ||
+      b.classe.toLowerCase().startsWith(pesquisa.toLowerCase()) ||
+      b.raridade.toLowerCase().startsWith(pesquisa.toLowerCase())
+    );
 
   return (
-    <div className="app">
+    <div className="max-w-6xl mx-auto px-5 py-10">
 
-      <Header
-        total={BrawlersData.length} 
+      <Header 
+        total={brawlersFiltrados.length} 
+        totalGeral={BrawlersData.length} 
+      />
+      
+      <Input 
+        barra={pesquisa} 
+        setBarra={setPesquisa} 
+      />
+      
+      <FiltroClasse 
+        classes={classes} 
+        selecionadas={classesSelecionadas} 
+        onToggle={toggleClasse} 
+      />
+      
+      <FiltroRaridade 
+        raridades={raridades} 
+        selecionadas={raridadesSelecionadas} 
+        onToggle={toggleRaridade} 
+      />
+      
+      <Main 
+        brawlers={brawlersFiltrados} 
       />
 
-      <Input
-        barra={pesquisa}
-        setBarra={setPesquisa}
-      />
-
-      <FiltroClasse
-        classe = {classe}
-        selecionarClasse = {classeSelecionada}
-        onSelecionarClasse = {setClasseSelecionada}
-      />
-
-      <FiltroRaridade
-        raridade = {raridade}
-        selecionarRaridade = {raridadeSelecionada}
-        onSelecionarRaridade = {setRaridadeSelecionada}
-      />
-
-      <Main
-        brawlers={brawlersFiltrar} 
-      />
     </div>
   );
 }

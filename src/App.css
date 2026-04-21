@@ -17,18 +17,7 @@ body {
   font-family: 'Nunito', sans-serif;
   color: #ffffff;
 }
- 
-.app {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
- 
-.header {
-  text-align: center;
-  margin-bottom: 48px;
-}
- 
+
 .titulo {
   font-family: 'Bangers', cursive;
   font-size: 4rem;
@@ -39,29 +28,4 @@ body {
   background-clip: text;
   text-shadow: none;
   margin-bottom: 8px;
-}
- 
-.subtitulo {
-  color: #8892b0;
-  font-size: 1rem;
-  margin-bottom: 12px;
-}
- 
-.contador {
-  display: inline-block;
-  background: rgba(255, 215, 0, 0.1);
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  color: #ffd700;
-  padding: 4px 16px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
- 
-.lista {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-  padding: 15px;
 }

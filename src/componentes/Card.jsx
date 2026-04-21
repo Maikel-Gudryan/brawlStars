@@ -1,5 +1,4 @@
-import "./Card.css";
-import { corRaridade, corClasse } from "./cores";
+import { corRaridade, corClasse } from "../constants/cores";
 
 function Card({ nome, classe, raridade, descricao, imagem }) {
 
