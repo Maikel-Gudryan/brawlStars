@@ -6,14 +6,17 @@ import { FiltroRaridade } from "./componentes/FiltroRaridade";
 import Main from "./componentes/Main";
 import Header from "./componentes/Header";
 import Input from "./componentes/Input";
+import Card from "./componentes/Card";
 
 function App() {
   const [classesSelecionadas, setClassesSelecionadas] = useState([]);
   const [raridadesSelecionadas, setRaridadesSelecionadas] = useState([]);
   const [pesquisa, setPesquisa] = useState("");
+  const [destaque, setDestaque] = useState([]);
 
   const classes = [...new Set(BrawlersData.map((b) => b.classe))];
   const raridades = [...new Set(BrawlersData.map((b) => b.raridade))];
+  const cardDestacadas = [...new Set(BrawlersData.map((b) => b.cardDestacadas))];
 
   function toggleClasse(classe) {
     setClassesSelecionadas((prev) =>
@@ -28,6 +31,14 @@ function App() {
       prev.includes(raridade)
         ? prev.filter((r) => r !== raridade)
         : [...prev, raridade]
+    );
+  }
+
+  function toggleDestacado(cardDestacadas) {
+    setDestaque((prev) =>
+      prev.includes(cardDestacadas)
+      ? prev.filter((cd) => cd !== cardDestacadas)
+      : [...prev, cardDestacadas]
     );
   }
 
@@ -46,6 +57,14 @@ function App() {
 
   return (
     <div className="max-w-6xl mx-auto px-5 py-10">
+      <span> 
+        <p> {`Meus Destaques ${destaque === "ja-destacado" ? destaque === 1 : "" }`}</p>
+        <Card
+          destacar = {destaque}
+          onToggle = {cardDestacadas}
+          destaqueSelecionado = {toggleDestacado}
+        />
+      </span>
 
       <Header 
         total={brawlersFiltrados.length} 

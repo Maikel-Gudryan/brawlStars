@@ -1,6 +1,6 @@
 import { corRaridade, corClasse } from "../constants/cores";
 
-function Card({ nome, classe, raridade, descricao, imagem }) {
+function Card({ nome, classe, raridade, descricao, imagem, destacar, onToggle, destaqueSelecionado }) {
 
   return (
     <div className="flex flex-col w-60 rounded-2xl border border-[#2a2a5a] overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.4)] bg-gradient-to-br from-[rgb(30,30,58)] to-[#16213e] transition-transform duration-200 
@@ -22,6 +22,13 @@ function Card({ nome, classe, raridade, descricao, imagem }) {
             {classe}
           </span>
         </div>
+        <button
+            key={destacar}
+            onClick={() => onToggle(destacar)}
+            className={`destaqueMini ${destaqueSelecionado ? "destacar" : "ja-destacado"}`}
+          >
+            {destacar}
+          </button> 
       </div>
       <div className="flex flex-col gap-2 p-4 flex-1">
         <p className="text-[#aab4d4] text-xs leading-relaxed">{descricao}</p>
@@ -32,6 +39,9 @@ function Card({ nome, classe, raridade, descricao, imagem }) {
       >
         {raridade}
       </div>
+      <div>
+          
+        </div>
     </div>
   );
 }
